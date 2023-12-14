@@ -1,0 +1,64 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Roboto', sans-serif; /* Add this line to change the font */
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 50px; /* Add some margin to the top */
+}
+
+h1 {
+    color: #007bff; /* Change the color of the h1 tag */
+}
+
+/* Add some styles for the form */
+#add-todo-form {
+    margin-bottom: 20px;
+}
+
+/* Add some styles for the input field */
+#add-todo-form input {
+    margin-right: 10px;
+}
+
+/* Add some styles for the task list */
+#task-list {
+    padding-left: 0;
+    list-style-type: none; /* Remove the bullet points */
+}
+
+.task-list-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.task-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    padding: 10px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    margin-left: 20px;
+    transition: background-color 0.3s ease; /* Add a transition for the background color */
+}
+
+/* Change the background color of the task item when you hover over it */
+.task-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Add some styles for the delete icon */
+.task-item .delete-icon {
+    cursor: pointer;
+    position: relative;
+    float: right;
+    color: #d9534f;
+    font-size: 30px;
+}
