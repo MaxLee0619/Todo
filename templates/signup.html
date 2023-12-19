@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='secure.css') }}" rel="stylesheet">
 </head>
+
 <body>
-    <div class="container mt-5">
+    <div class="container mt-3">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-8 col-lg-6"> <!-- Adjusted column width for smaller screens -->
                 <div class="card">
                     <div class="card-body">
                         <h1 class="text-center mb-4">Sign Up</h1>
-                        <form method="post" class="signup-form" onsubmit="return validatePassword()">
+                        <form method="post" class="signup-form" onsubmit="return validateForm()">
                             <div class="mb-3">
-                                <label for="username" class="form-label">Full Name</label>
+                                <label for="username" class="form-label">First Name</label>
                                 <input type="text" class="form-control" id="username" name="username" required>
                             </div>
                             <div class="mb-3">
@@ -30,10 +34,10 @@
                             <div class="mb-3">
                                 <label for="confirm_password" class="form-label">Confirm Password</label>
                                 <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
-                                <div id="passwordError" class="text-danger"></div>
+                                <div id="confirm_passwordError" class="text-danger"></div>
                             </div>
                             <button type="submit" class="btn btn-primary">Sign Up</button>
-                            <a href="{{ url_for('login') }}" class="btn btn-link">Already have an account?</a>
+                            <a href="{{ url_for('login') }}" class="btn btn-link mt-3">Already have an account?</a>
                             {% if error %}
                                 <p class="text-danger mt-3">{{ error }}</p>
                             {% endif %}
@@ -45,7 +49,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script>
-        function validatePassword() {
+        function validateForm() {
             const passwordInput = document.getElementById('password');
             const confirm_passwordInput = document.getElementById('confirm_password');
             const confirm_passwordError = document.getElementById('confirm_passwordError');
@@ -65,7 +69,7 @@
                 return false;
             }
 
-            //Confirm password must match password
+            // Confirm password must match password
             if (password !== confirm_password) {
                 confirm_passwordError.textContent = 'Confirm password must match password';
                 return false;
@@ -73,9 +77,11 @@
 
             // Clear the error message if validation passes
             passwordError.textContent = '';
+            confirm_passwordError.textContent = '';
 
             return true;
         }
     </script>
 </body>
+
 </html>
